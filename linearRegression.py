@@ -1,5 +1,5 @@
 # Upper Confidence Interval for sample cancer data set, X axis
-upperConfidenceInterval = [144.2, 155.1, 194.7, 165.5, 141.4, 134.9, 138.5, 138.3, 144.4, 130.4, 121, 124.1, 112.6, 119.9, 122.3, 120.6, 116.9, 141.6, 113.7, 110.3]
+upperConfidenceInterval = [144, 155, 194, 165, 141, 134, 138, 138, 144, 130, 121, 124, 112, 119, 122, 120, 116, 141, 113, 110]
 # Average Deaths Per Year in same data set, y axis
 averageDeaths = [43, 18, 5, 8, 19, 22, 16, 14, 9, 17, 33, 25, 47, 21, 17, 17, 22, 6, 29, 39]
 
@@ -29,7 +29,7 @@ def get_gradient_at_m(x, y, b, m):
   for i in range(N):
       x_val = upperConfidenceInterval[i]
       y_val = averageDeaths[i]
-      diff += x_val * (y_val - ((m * x_val) + b))
+      diff += x_val * (y_val - ((m[i] * x_val) + b[i]))
   m_gradient = -(2/N) * diff  
   return m_gradient
 
@@ -53,7 +53,7 @@ b = 0
 m = 0
 
 # Call your function here to update b and m
-b, m = gradient_descent(upperConfidenceInterval, averageDeaths, 0.01, 100)
+b, m = gradient_descent(upperConfidenceInterval, averageDeaths, 0.01, 1000)
 print(b, m)
 
 plt.plot(upperConfidenceInterval, averageDeaths, "o")
