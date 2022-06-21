@@ -38,17 +38,21 @@ def findPrice(i):
     if (len(prices) >= 14):
         totalGain = 0
         totalLoss = 0
-        for i in range(14):
+        for i in range(13):
             index = len(prices) - 13 + i
-            if (prices[index + 1] >= prices[index]):
-                totalGain += (prices[index + 1] - prices[index])
-            elif (prices[index + 1] <= prices[index]):
-                totalLoss += (prices[index] - prices[index + 1])
+            if (prices[index] >= prices[index - 1]):
+                totalGain += (prices[index] - prices[index - 1])
+            elif (prices[index] <= prices[index - 1]):
+                totalLoss += (prices[index - 1] - prices[index])
         avgGain = totalGain / 14
         avgLoss = totalLoss / 14
         RS = avgGain / avgLoss
         RSI = 100 / (1 + RS)
-        print("RSI: " + RSI)
+        print("RSI: " + str(RSI))
+        # print(totalGain)
+        # print(totalLoss)
+        # print(avgGain)
+        # print(avgLoss)
 
     # Live plots prices
     plt.cla()
@@ -56,14 +60,7 @@ def findPrice(i):
     plt.ylabel("Price (USD)")
     plt.plot(now, prices, "-")
 
-# Print prices and now lists (Testing purposes)
-# print(prices)
-# print(now)
-
-# Edits plot of prices over time, between temporary price range of $900 and $1500
-# plt.figure()
-
 # Live plots prices using FuncAnimation from matplotlib.animation
-ani = FuncAnimation(plt.gcf(), findPrice, interval=1000)
+ani = FuncAnimation(plt.gcf(), findPrice, interval=60000)
 plt.show()
 
