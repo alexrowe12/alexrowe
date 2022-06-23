@@ -38,12 +38,13 @@ def findPrice(i):
     if (len(prices) >= 14):
         totalGain = 0
         totalLoss = 0
-        for i in range(13):
-            index = len(prices) - 13 + i
-            if (prices[index] >= prices[index - 1]):
-                totalGain += (prices[index] - prices[index - 1])
-            elif (prices[index] <= prices[index - 1]):
-                totalLoss += (prices[index - 1] - prices[index])
+        index = len(prices) - 13 + i
+        for i in range(14):
+            if (i > 1 and i <= 14):
+                if (prices[index] >= prices[index - 1]):
+                    totalGain += (prices[index] - prices[index - 1])
+                elif (prices[index] <= prices[index - 1]):
+                    totalLoss += (prices[index - 1] - prices[index])
         avgGain = totalGain / 14
         avgLoss = totalLoss / 14
         RS = avgGain / avgLoss
@@ -61,6 +62,6 @@ def findPrice(i):
     plt.plot(now, prices, "-")
 
 # Live plots prices using FuncAnimation from matplotlib.animation
-ani = FuncAnimation(plt.gcf(), findPrice, interval=60000)
+ani = FuncAnimation(plt.gcf(), findPrice, interval=1000)
 plt.show()
 

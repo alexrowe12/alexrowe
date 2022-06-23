@@ -19,7 +19,7 @@ best_fit = line_fitter.predict(xRs)
 print (line_fitter.intercept_)
 
 plt.plot(x, y, "o")
-plt.plot(x, best_fit, "--")
+plt.plot(x, best_fit, "-")
 plt.xlabel("Upper Confidence Interval")
 plt.ylabel("Average Deaths")
 plt.show()
