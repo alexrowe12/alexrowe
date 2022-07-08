@@ -56,10 +56,10 @@ def findPrice(i):
     plt.plot(now, prices, "-")
 
     plt.figure(1)
-    plt.cla()
     plt.title("RSI vs. Time")
     plt.xlabel("Time (HH:MM:SS)")
     plt.ylabel("RSI")
+    plt.ylim([0, 100])
     plt.plot(now, rsis, "o")
 
 # Live plots prices using FuncAnimation from matplotlib.animation
