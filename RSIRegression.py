@@ -49,7 +49,6 @@ def findPrice(i):
 
     # Live plots prices
     plt.figure(0)
-    plt.cla()
     plt.title("Prices vs. Time")
     plt.xlabel("Time (HH:MM:SS)")
     plt.ylabel("Price (USD)")
