@@ -47,6 +47,20 @@ def findPrice(i):
     print("RSI at " + str(currentTime.strftime("%H:%M:%S")) + ": " + str(rsi))
     rsis.append(rsi)
 
+    # if (len(prices) >= 2):
+    #     # Reshape to feed into fitter
+    #     pricesReshape = np.reshape(prices, (1, -1))
+    #     rsisReshape = np.reshape(rsis, (1, -1))
+
+    #     # Finding line of best fit for RSI/Price?
+    #     fit_finder = LinearRegression()
+    #     fit_finder.fit(pricesReshape, rsisReshape)
+    #     best_fit = fit_finder.predict(rsis)
+
+    #     # Output data about best fit line
+    #     print(fit_finder.coef_)
+    #     print(fit_finder.intercept_)
+
     # Live plots prices
     plt.figure(0)
     plt.title("Prices vs. Time")
