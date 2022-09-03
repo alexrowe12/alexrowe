@@ -47,6 +47,8 @@ def findPrice(i):
     print("RSI at " + str(currentTime.strftime("%H:%M:%S")) + ": " + str(rsi))
     rsis.append(rsi)
 
+# IDEA: make one graph with RSI vs. Prices vs. Time? or just RSI vs prices? then plot best fit using this data as a predictor
+
     # if (len(prices) >= 2):
     #     # Reshape to feed into fitter
     #     pricesReshape = np.reshape(prices, (1, -1))
